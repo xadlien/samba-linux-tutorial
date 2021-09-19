@@ -1,0 +1,7 @@
+FROM alpine:latest
+
+# install smb server
+RUN apk update && \
+    apk add samba-client bash
+
+ENTRYPOINT [ "/bin/sleep", "99999999" ]

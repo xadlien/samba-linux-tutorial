@@ -1,0 +1,27 @@
+FROM alpine:latest
+
+# install smb server
+RUN apk update && \
+    apk add \
+        samba-server \
+        samba-common-tools 
+
+# add in samba configuration
+ADD samba-server-config/smb.conf /etc/samba/smb.conf
+
+# create share points
+#RUN mkdir /mnt/public /mnt/lucyshare
+
+# create sample folders in shares
+ADD samba-server-config/lucy /mnt/lucyshare
+ADD samba-server-config/public /mnt/public
+
+# create the lucy user
+RUN adduser lucy -D
+RUN passwd lucy -d 'password'
+RUN printf "password\npassword\n" | smbpasswd -a -s lucy
+
+# add entrypoint
+ADD entrypoint.sh /tmp/entrypoint.sh
+
+ENTRYPOINT ["sh", "/tmp/entrypoint.sh"]
