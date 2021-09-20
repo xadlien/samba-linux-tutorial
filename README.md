@@ -1,6 +1,6 @@
 # Samba Linux Tutorial
 ## Description
-This repository was created to go along with the post https://danstechjourney.wordpress.com/2021/09/20/connecting-to-windows-share-on-linux-samba/. The install instructions will be here but the tutorial will be on that website.
+This repository was created to go along with the post https://danstechjourney.com/2021/09/20/connecting-to-windows-share-on-linux-samba/. The install instructions will be here but the tutorial will be on that website.
 ## Installation
 docker-compose is required for this tutorial.
 ```
