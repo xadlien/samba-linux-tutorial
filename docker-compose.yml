@@ -1,13 +1,13 @@
 version: '3'
 services:
-  smbserver:
+  smb-server:
     build: ./server
-    container_name: smbserver
+    container_name: smb-server
     networks:
       - samba-test
-  smbclient:
+  smb-client:
     build: ./client
-    container_name: smbclient
+    container_name: smb-client
     networks:
       - samba-test
   

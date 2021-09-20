@@ -4,4 +4,8 @@ FROM alpine:latest
 RUN apk update && \
     apk add samba-client bash
 
+# create user for tutorial
+RUN adduser -D lucy
+USER lucy
+
 ENTRYPOINT [ "/bin/sleep", "99999999" ]

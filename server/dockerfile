@@ -20,6 +20,8 @@ ADD samba-server-config/public /mnt/public
 RUN adduser lucy -D
 RUN passwd lucy -d 'password'
 RUN printf "password\npassword\n" | smbpasswd -a -s lucy
+RUN chown -R lucy /mnt/lucyshare
+RUN chmod -R 777 /mnt/public
 
 # add entrypoint
 ADD entrypoint.sh /tmp/entrypoint.sh
